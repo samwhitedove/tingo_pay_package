@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -55,7 +54,6 @@ class InAppWebPageViewerState extends State<InAppWebPageViewer> {
               child: Stack(
                 children: [
                   WebView(
-                    // initialUrl: Get.parameters['url'],
                     javascriptMode: JavascriptMode.unrestricted,
                     onPageFinished: (String url) {
                       debugPrint('Page finished loading: ');
@@ -64,7 +62,6 @@ class InAppWebPageViewerState extends State<InAppWebPageViewer> {
                     onProgress: (progress) {
                       isLoading.value = true;
                       percentage.value = progress / 100;
-                      // Functions.logs('progress: $progress -----------------');
                       if (percentage.value == 1.0) {
                         isLoading.value = false;
                       }
@@ -74,7 +71,6 @@ class InAppWebPageViewerState extends State<InAppWebPageViewer> {
                       _controller.loadRequest(WebViewRequest(
                         uri: Uri.parse(widget.url),
                         method: WebViewRequestMethod.get,
-                        // headers: Get.arguments['headers'],
                       ));
                     },
                     gestureNavigationEnabled: true,

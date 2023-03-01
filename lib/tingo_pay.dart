@@ -110,7 +110,6 @@ class _TingoGateWayState extends State<TingoGateWay> {
             child: Text("Amount"),
           ),
           Container(
-              // padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
               decoration: BoxDecoration(
                   border: Border.all(
                       color: Colors.grey, style: BorderStyle.solid, width: 1),
@@ -121,10 +120,6 @@ class _TingoGateWayState extends State<TingoGateWay> {
                   enabled: enabled,
                   controller: controller,
                   onChanged: onChange == null ? null : (text) => onChange(),
-                  // autovalidateMode: validate == null
-                  //     ? null
-                  //     : AutovalidateMode.onUserInteraction,
-                  // validator: validate == null ? null : (text) => validate(),
                   style: const TextStyle(color: Colors.black, fontSize: 20),
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
@@ -132,7 +127,6 @@ class _TingoGateWayState extends State<TingoGateWay> {
                   ],
                   decoration: InputDecoration(
                     hintText: hintText,
-                    // prefix: prefix ?? Container(),
                     hintStyle: TextStyle(
                       fontSize: 18,
                       color: Colors.grey.withOpacity(.5),
