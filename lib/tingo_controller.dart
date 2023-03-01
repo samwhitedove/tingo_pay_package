@@ -7,12 +7,6 @@ import 'package:http/http.dart' as http;
 import 'package:tingo_pay/webView.dart';
 
 class Tingo extends GetxController {
-  // Tingo(
-  //     {required this.merchantKey,
-  //     required this.publicKey,
-  //     required this.successUrl,
-  //     required this.callbackUrl,
-  //     required this.failUrl});
   TextEditingController amount = TextEditingController();
 
   late String _email;
@@ -63,21 +57,20 @@ class Tingo extends GetxController {
     String txf = "${getTxf(7)}_${DateTime.now().millisecondsSinceEpoch}";
 
     Map<String, dynamic> payload = {
-      "merchant_key": _merchantKey.value, //      "yqELaZtj9E9ombt9",
-      "public_key": _publicKey
-          .value, //  "PUB-gHZo9tIpYxtlFmowDmVg8w59v7h8zVh2", //PUB-Mcd9lhIqXYIQdaIOUwMkSp3e3hAQqoJz
-      "success_url": _successUrl.value, //     "facebook.com",
-      "callback_url": _callbackUrl.value, //     "facebook.com",
-      "fail_url": _failUrl.value, //      "facebook.com",
+      "merchant_key": _merchantKey.value,
+      "public_key": _publicKey.value, 
+      "success_url": _successUrl.value, /// example::: "https://your-site.com/success
+      "callback_url": _callbackUrl.value, // example:::  "https://your-site.com/callBack",
+      "fail_url": _failUrl.value, // / example::: "https://your-site.com/fail",
       "amount": amount.text,
       "email": _email,
       "first_name": _firstName,
       "last_name": _lastName,
-      "title": title, //     "Wallet Funding",
-      "description": _description, //      "Wallet top up for tingo pay",
-      "quantity": _quantity, //      "1",
+      "title": title, //     "
+      "description": _description, // 
+      "quantity": _quantity, // default::: "1",
       "tx_ref": "TP_$txf",
-      "currency": _currency, //      "NGN"
+      "currency": _currency, // default::: "NGN"
     };
 
     isLoading.value = true;

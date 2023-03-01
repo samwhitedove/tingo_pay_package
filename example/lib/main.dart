@@ -29,10 +29,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var init;
+
   @override
   void initState() {
-    init = Tingo.init(
+    Tingo.init(
       merchantKey: "yqELaZtj9E9ombt9",
       publicKey: "PUB-gHZo9tIpYxtlFmowDmVg8w59v7h8zVh2",
       successUrl: "https://tingopay.com/success-payment",
