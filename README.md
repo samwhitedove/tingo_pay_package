@@ -11,29 +11,79 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
 ## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+```
+VERSION: 0.0.2
+```
+## Features
+ Payment Services
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Package for easy use of tingo payment gateway for flutter developers.
 
 ## Usage
+//intialize the tingo payment in your instate 
+//Use the tingo gateway widget inside your app
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+```
+import 'package:flutter/material.dart';
+import 'package:tingo_pay/tingo_controller.dart';
+import 'package:tingo_pay/tingo_pay.dart';
 
-```dart
-const like = 'sample';
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      color: Colors.yellow,
+      title: 'TingoPay Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  @override
+  void initState() {
+    //intialize Here
+    Tingo.init(
+      merchantKey: "yqELaZtj9Exxxxx",
+      publicKey: "PUB-gHZo9tIpYxtlFmowxxxxxxxxxxxxxxxxx",
+      successUrl: "https://your-site.com/xxxx",
+      callbackUrl: "https://your-site.com/xxxxx",
+      failUrl: "https://your-site.com/xxxxxx",
+    );
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TingoGateWay(
+      email: "email@email.com",
+      description: "Description",
+      firstName: "John",
+      lastName: "Doe",
+    );
+  }
+}
+
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+All you need is to initialize the package, the package handles everything..
